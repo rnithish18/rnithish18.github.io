@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kryzent Technologies — Software & AI Development, Namakkal</title>
+<meta name="description" content="Kryzent Technologies builds web applications, AI-powered software, and freelance development solutions from Namakkal, Tamil Nadu. MSME registered. Internship & training programs available.">
+<link rel="icon" href="assets/logo.jpeg" type="image/jpeg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --navy-deep:#0A1440;
+    --navy:#0F2A6B;
+    --blue:#1F6FEB;
+    --blue-light:#3FA9F5;
+    --ink:#0B1220;
+    --ink-soft:#4B5468;
+    --bg:#F6F8FC;
+    --white:#FFFFFF;
+    --line:#E1E7F2;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+
+  h1,h2,h3,h4{
+    font-family:'Space Grotesk',sans-serif;
+    color:var(--ink);
+    line-height:1.15;
+    letter-spacing:-0.01em;
+  }
+
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.75rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--blue);
+    font-weight:500;
+  }
+
+  a{color:inherit;text-decoration:none;}
+
+  img{max-width:100%;display:block;}
+
+  .wrap{
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  :focus-visible{
+    outline:2px solid var(--blue);
+    outline-offset:3px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:100;
+    background:rgba(246,248,252,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    max-width:1120px;
+    margin:0 auto;
+    padding:14px 32px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .brand img{height:34px;width:auto;}
+  .brand-name{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:1.05rem;
+    color:var(--navy-deep);
+  }
+  .brand-name span{color:var(--blue);}
+
+  .nav-links{
+    display:flex;
+    gap:32px;
+    font-size:0.92rem;
+    font-weight:500;
+  }
+  .nav-links a{
+    color:var(--ink-soft);
+    transition:color 0.2s ease;
+  }
+  .nav-links a:hover{color:var(--blue);}
+
+  .nav-cta{
+    background:var(--navy-deep);
+    color:var(--white);
+    padding:9px 20px;
+    border-radius:6px;
+    font-size:0.88rem;
+    font-weight:500;
+    transition:background 0.2s ease;
+  }
+  .nav-cta:hover{background:var(--blue);}
+
+  .menu-btn{display:none;background:none;border:none;cursor:pointer;}
+
+  @media (max-width:760px){
+    .nav-links{display:none;}
+    .menu-btn{display:block;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:168px 32px 100px;
+    overflow:hidden;
+  }
+  .hero-inner{
+    max-width:1120px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:56px;
+    align-items:center;
+    position:relative;
+    z-index:2;
+  }
+  .hero h1{
+    font-size:clamp(2.3rem, 5vw, 3.6rem);
+    font-weight:700;
+    margin-bottom:22px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    background:linear-gradient(100deg, var(--navy) 10%, var(--blue-light) 90%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .hero p{
+    font-size:1.08rem;
+    color:var(--ink-soft);
+    max-width:46ch;
+    margin-bottom:32px;
+  }
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--navy-deep);
+    color:var(--white);
+    padding:13px 26px;
+    border-radius:7px;
+    font-weight:500;
+    font-size:0.95rem;
+    transition:transform 0.2s ease, background 0.2s ease;
+    display:inline-block;
+  }
+  .btn-primary:hover{background:var(--blue); transform:translateY(-2px);}
+  .btn-secondary{
+    border:1px solid var(--line);
+    color:var(--ink);
+    padding:13px 26px;
+    border-radius:7px;
+    font-weight:500;
+    font-size:0.95rem;
+    background:var(--white);
+    transition:border-color 0.2s ease, transform 0.2s ease;
+    display:inline-block;
+  }
+  .btn-secondary:hover{border-color:var(--blue); transform:translateY(-2px);}
+
+  .hero-visual{position:relative; height:340px;}
+  .hero-visual svg{width:100%; height:100%;}
+
+  .flow-path{
+    fill:none;
+    stroke-linecap:round;
+    stroke-width:3;
+  }
+  .flow-1{stroke:var(--blue-light); stroke-dasharray:900; stroke-dashoffset:900; animation:draw 2.2s ease forwards 0.2s;}
+  .flow-2{stroke:var(--navy); stroke-dasharray:900; stroke-dashoffset:900; animation:draw 2.2s ease forwards 0.6s;}
+  @keyframes draw{to{stroke-dashoffset:0;}}
+
+  .credibility-strip{
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    background:var(--white);
+    padding:14px 32px;
+  }
+  .credibility-strip .wrap{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px 28px;
+    justify-content:center;
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.78rem;
+    color:var(--ink-soft);
+  }
+  .credibility-strip strong{color:var(--navy-deep); font-weight:500;}
+
+  /* ---------- SECTION SHARED ---------- */
+  section{padding:96px 32px;}
+  .section-head{max-width:640px; margin-bottom:52px;}
+  .section-head h2{
+    font-size:clamp(1.7rem,3.4vw,2.3rem);
+    margin-top:10px;
+  }
+  .section-head p{color:var(--ink-soft); margin-top:14px; font-size:1.02rem;}
+
+  .divider{
+    max-width:1120px;
+    margin:0 auto;
+    height:40px;
+  }
+  .divider svg{width:100%; height:100%; opacity:0.5;}
+
+  /* ---------- ABOUT ---------- */
+  .about{background:var(--white);}
+  .about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:56px;
+    align-items:start;
+  }
+  .about-grid p{color:var(--ink-soft); margin-bottom:16px;}
+  .founder-card{
+    background:var(--bg);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:28px;
+  }
+  .founder-card .eyebrow{margin-bottom:10px; display:block;}
+  .founder-card h3{font-size:1.15rem; margin-bottom:6px;}
+  .founder-card p{color:var(--ink-soft); font-size:0.95rem;}
+
+  /* ---------- SERVICES ---------- */
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+  }
+  .service-card ul{
+    list-style:none;
+    margin-top:12px;
+  }
+  .service-card ul li{
+    font-size:0.86rem;
+    color:var(--ink-soft);
+    padding:3px 0 3px 16px;
+    position:relative;
+  }
+  .service-card ul li::before{
+    content:"→";
+    position:absolute;
+    left:0;
+    color:var(--blue-light);
+  }
+  .tagline-strip{
+    text-align:center;
+    max-width:720px;
+    margin:0 auto 56px;
+    padding-top:8px;
+  }
+  .tagline-strip p{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:clamp(1.2rem,2.6vw,1.6rem);
+    font-weight:600;
+    color:var(--navy-deep);
+  }
+  .tagline-strip p em{
+    font-style:normal;
+    color:var(--blue);
+  }
+  .service-card{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:30px;
+    transition:transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+  .service-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 28px rgba(15,42,107,0.08);
+    border-color:var(--blue-light);
+  }
+  .service-icon{
+    width:44px; height:44px;
+    border-radius:10px;
+    background:linear-gradient(135deg, var(--navy) 0%, var(--blue-light) 100%);
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:18px;
+  }
+  .service-icon svg{width:22px; height:22px; stroke:white; fill:none; stroke-width:1.8;}
+  .service-card h3{font-size:1.12rem; margin-bottom:8px;}
+  .service-card p{color:var(--ink-soft); font-size:0.94rem;}
+
+  /* ---------- PROCESS ---------- */
+  .process{background:var(--navy-deep); color:var(--white);}
+  .process .section-head h2, .process .section-head p{color:var(--white);}
+  .process .section-head p{opacity:0.75;}
+  .process-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:32px;
+  }
+  .process-step{position:relative; padding-left:0;}
+  .process-num{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.85rem;
+    color:var(--blue-light);
+    display:block;
+    margin-bottom:14px;
+  }
+  .process-step h3{color:var(--white); font-size:1.1rem; margin-bottom:10px;}
+  .process-step p{color:rgba(255,255,255,0.7); font-size:0.94rem;}
+  .process-line{
+    height:1px;
+    background:rgba(255,255,255,0.15);
+    margin-top:20px;
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact{background:var(--white);}
+  .contact-box{
+    background:var(--bg);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:52px;
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:48px;
+    align-items:center;
+  }
+  .contact-box h2{font-size:1.9rem; margin-bottom:14px;}
+  .contact-box p{color:var(--ink-soft); margin-bottom:26px; max-width:42ch;}
+  .contact-list{list-style:none;}
+  .contact-list li{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:14px 0;
+    border-bottom:1px solid var(--line);
+    font-size:0.96rem;
+  }
+  .contact-list li:last-child{border-bottom:none;}
+  .contact-list .label{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.72rem;
+    color:var(--blue);
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    width:64px;
+    flex-shrink:0;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--navy-deep);
+    color:rgba(255,255,255,0.6);
+    padding:36px 32px;
+    text-align:center;
+    font-size:0.85rem;
+  }
+  footer strong{color:white;}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:960px){
+    .services-grid{grid-template-columns:repeat(2,1fr);}
+  }
+
+  @media (max-width:860px){
+    .hero-inner{grid-template-columns:1fr;}
+    .hero-visual{height:220px; order:-1;}
+    .about-grid{grid-template-columns:1fr;}
+    .services-grid{grid-template-columns:1fr;}
+    .process-grid{grid-template-columns:1fr; gap:36px;}
+    .contact-box{grid-template-columns:1fr; padding:36px 24px;}
+  }
+
+  /* ---------- INTRO SPLASH ---------- */
+  #intro{
+    position:fixed;
+    inset:0;
+    z-index:1000;
+    background:var(--navy-deep);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:opacity 0.6s ease;
+  }
+  #intro.hide{
+    opacity:0;
+    pointer-events:none;
+  }
+  #intro video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:0.92;
+  }
+  .intro-logo{
+    position:absolute;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    animation:introLogoFade 2.4s ease forwards;
+  }
+  .intro-logo img{height:64px; width:auto; filter:drop-shadow(0 4px 16px rgba(0,0,0,0.35));}
+  @keyframes introLogoFade{
+    0%{opacity:0;}
+    15%{opacity:1;}
+    85%{opacity:1;}
+    100%{opacity:0;}
+  }
+  .intro-skip{
+    position:absolute;
+    bottom:28px;
+    right:32px;
+    background:rgba(255,255,255,0.12);
+    color:#fff;
+    border:1px solid rgba(255,255,255,0.35);
+    padding:9px 18px;
+    border-radius:6px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.78rem;
+    cursor:pointer;
+    transition:background 0.2s ease;
+  }
+  .intro-skip:hover{background:rgba(255,255,255,0.24);}
+
+  @media (prefers-reduced-motion: reduce){
+    #intro{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<div id="intro" aria-hidden="true">
+  <video autoplay muted playsinline id="intro-video">
+    <source src="assets/intro.mp4" type="video/mp4">
+  </video>
+  <div class="intro-logo">
+    <img src="assets/logo.jpeg" alt="Kryzent Technologies">
+  </div>
+  <button class="intro-skip" id="intro-skip">Skip intro</button>
+</div>
+
+<header>
+  <nav>
+    <a href="#top" class="brand">
+      <img src="assets/logo.jpeg" alt="Kryzent Technologies logo">
+      <span class="brand-name">KRYZENT <span>TECHNOLOGIES</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#process">How we work</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#contact" class="nav-cta">Get in touch</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <span class="eyebrow">Software & AI development · Namakkal, Tamil Nadu</span>
+        <h1 style="margin-top:14px;">We build <em>software that ships</em>, not just prototypes</h1>
+        <p>Kryzent Technologies designs and builds web applications, AI-powered tools, and custom software for businesses and individuals — plus hands-on internship and training programs for the next generation of developers.</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn-primary">Start a project</a>
+          <a href="#services" class="btn-secondary">See what we do</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <svg viewBox="0 0 400 340" xmlns="http://www.w3.org/2000/svg">
+          <path class="flow-path flow-1" d="M60,40 C40,110 160,120 130,190 C100,260 220,250 190,320"/>
+          <path class="flow-path flow-2" d="M340,20 C300,90 200,90 220,170 C240,250 130,260 150,320"/>
+          <circle cx="60" cy="40" r="9" fill="#3FA9F5"/>
+          <circle cx="340" cy="20" r="6" fill="#0F2A6B"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <div class="credibility-strip">
+    <div class="wrap">
+      <span><strong>MSME Registered</strong> · Udyam: UDYAM-TN-14-0111131</span>
+      <span>Based in <strong>Namakkal, Tamil Nadu</strong></span>
+      <span><strong>Founder-led</strong> engineering team</span>
+    </div>
+  </div>
+
+  <section class="about" id="about">
+    <div class="section-head">
+      <span class="eyebrow">About us</span>
+      <h2>A small studio built to move fast</h2>
+    </div>
+    <div class="about-grid">
+      <div>
+        <p>Kryzent Technologies is an MSME-registered software development company based in Namakkal, Tamil Nadu. We work with businesses and individuals who need real, working software — not just a proposal deck.</p>
+        <p>Our focus spans full web application development, AI-powered tools built on modern language models, and freelance engineering support for teams that need extra hands on a deadline. Alongside client work, we run structured internship and training programs, giving new developers real projects to learn from.</p>
+        <p>We're a young, technically hands-on team — small enough to stay close to every project, and serious about shipping software that actually works in production.</p>
+      </div>
+      <div class="founder-card">
+        <span class="eyebrow">Founder</span>
+        <p style="margin-top:6px;">CEO & Founder, Kryzent Technologies. Computer Science & Engineering student building AI-powered applications and leading the studio's client and training projects.</p>
+        <img src="assets/signature.jpeg" alt="Founder's signature" style="height:56px; width:auto; margin-top:18px;">
+      </div>
+    </div>
+  </section>
+
+  <div class="divider">
+    <svg viewBox="0 0 1120 40" preserveAspectRatio="none">
+      <path d="M0,20 C280,0 840,40 1120,20" stroke="#1F6FEB" stroke-width="1.5" fill="none"/>
+    </svg>
+  </div>
+
+  <section class="services" id="services">
+    <div class="tagline-strip">
+      <p>We don't just write code — <em>we solve real problems.</em></p>
+    </div>
+    <div class="section-head">
+      <span class="eyebrow">What we do</span>
+      <h2>Six ways we help you build</h2>
+      <p>From a first prototype to a production system, or from your first internship to your first shipped feature.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h12a2 2 0 012 2v9a2 2 0 01-2 2H6a2 2 0 01-2-2V6z"/><path stroke-linecap="round" d="M2 20h20"/><path stroke-linecap="round" d="M8 10l3 3-3 3M13 16h3"/></svg>
+        </div>
+        <h3>Web Development</h3>
+        <p>Responsive, fast-loading sites and platforms tailored to your business.</p>
+        <ul>
+          <li>Custom websites</li>
+          <li>Landing pages</li>
+          <li>Business portals</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" stroke-linecap="round"/><path stroke-linecap="round" d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
+        </div>
+        <h3>AI-Powered Applications</h3>
+        <p>Custom tools built on large language models for real workflows.</p>
+        <ul>
+          <li>Chatbots</li>
+          <li>Diagnosis tools</li>
+          <li>Automation systems</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 19V10M10 19V5M16 19v-7M22 19H2"/></svg>
+        </div>
+        <h3>Data & Analytics Tools</h3>
+        <p>Turning raw data into decisions your team can act on.</p>
+        <ul>
+          <li>Dashboards</li>
+          <li>Report generators</li>
+          <li>Forensic tools</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2" stroke-linecap="round" stroke-linejoin="round"/><path stroke-linecap="round" stroke-linejoin="round" d="M8 11V7a4 4 0 018 0v4"/></svg>
+        </div>
+        <h3>Secure Backend Systems</h3>
+        <p>Reliable infrastructure built to scale safely from day one.</p>
+        <ul>
+          <li>FastAPI</li>
+          <li>MongoDB</li>
+          <li>REST APIs</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12M8 12h12M8 17h12"/><circle cx="3" cy="7" r="1.4"/><circle cx="3" cy="12" r="1.4"/><circle cx="3" cy="17" r="1.4"/></svg>
+        </div>
+        <h3>Freelance Solutions</h3>
+        <p>Extra engineering capacity for your team or project — short-term builds, feature work, and fixed-scope delivery.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3l9 4.5-9 4.5-9-4.5L12 3z"/><path stroke-linecap="round" stroke-linejoin="round" d="M3 7.5V16l9 4.5 9-4.5V7.5"/></svg>
+        </div>
+        <h3>Internship & Training</h3>
+        <p>Structured programs for students to work on real projects, with mentorship and a certificate on completion.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="process" id="process">
+    <div class="section-head">
+      <span class="eyebrow">How we work</span>
+      <h2>From first call to shipped product</h2>
+      <p>A short, honest process — no long onboarding, no scope surprises.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-step">
+        <span class="process-num">01 / Discover</span>
+        <h3>We understand the problem</h3>
+        <p>A short call to understand what you need, your timeline, and what "done" looks like.</p>
+      </div>
+      <div class="process-step">
+        <span class="process-num">02 / Build</span>
+        <h3>We build in the open</h3>
+        <p>Regular check-ins and working demos as we go, so you always know where the project stands.</p>
+      </div>
+      <div class="process-step">
+        <span class="process-num">03 / Support</span>
+        <h3>We stay after launch</h3>
+        <p>Deployment help and fixes after handover — the project doesn't end at the final commit.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="contact-box">
+      <div>
+        <span class="eyebrow">Get in touch</span>
+        <h2>Let's build something that works</h2>
+        <p>Tell us about your project, your team, or your interest in our internship program — we typically reply within a day.</p>
+        <a href="mailto:kryzent.technologies@gmail.com" class="btn-primary">Email us</a>
+      </div>
+      <ul class="contact-list">
+        <li><span class="label">Email</span> <a href="mailto:kryzent.technologies@gmail.com">kryzent.technologies@gmail.com</a></li>
+        <li><span class="label">Location</span> Namakkal, Tamil Nadu, India</li>
+        <li><span class="label">Github</span> <a href="https://github.com/rnithish18" target="_blank" rel="noopener">github.com/rnithish18</a></li>
+        <li><span class="label">MSME</span> UDYAM-TN-14-0111131</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p><strong>Kryzent Technologies</strong> · MSME Registered · Namakkal, Tamil Nadu</p>
+  <p style="margin-top:6px;">&copy; <span id="year"></span> Kryzent Technologies. All rights reserved.</p>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Intro splash: play once per browser session, skippable, auto-hides when the video ends.
+  (function(){
+    var intro = document.getElementById('intro');
+    var video = document.getElementById('intro-video');
+    var skipBtn = document.getElementById('intro-skip');
+
+    var seen = sessionStorage.getItem('kryzentIntroSeen');
+    if (seen) {
+      intro.style.display = 'none';
+      return;
+    }
+
+    function hideIntro(){
+      intro.classList.add('hide');
+      sessionStorage.setItem('kryzentIntroSeen', '1');
+      setTimeout(function(){ intro.style.display = 'none'; }, 650);
+    }
+
+    video.addEventListener('ended', hideIntro);
+    skipBtn.addEventListener('click', hideIntro);
+    // safety fallback in case autoplay is blocked or the video fails to load
+    setTimeout(hideIntro, 10500);
+  })();
+</script>
+
+</body>
+</html>
